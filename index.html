@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cloud Computing</title>
+    <style>
+      :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.4;color:#222}
+      body{margin:20px;background:#f7f9fb}
+      .container{max-width:900px;margin:0 auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 6px 20px rgba(20,30,50,0.06)}
+      .tabs{display:flex;gap:8px;margin-bottom:16px}
+      .tab-button{padding:10px 14px;border:1px solid #d0d7de;background:#fff;border-radius:6px;cursor:pointer}
+      .tab-button.active{background:#0b5fff;color:#fff;border-color:#0b5fff}
+      .tab{display:none}
+      .tab.active{display:block}
+      img.responsive{max-width:100%;height:auto;border-radius:6px;border:1px solid #e6eefc}
+      .side-by-side{display:flex;gap:12px;flex-wrap:wrap}
+      .card{flex:1 1 280px;background:#fbfdff;padding:12px;border-radius:8px;border:1px solid #eef6ff}
+      figure{margin:12px 0}
+      figcaption{font-size:0.9rem;color:#555}
+      h1,h2,h3{margin:8px 0}
+      ul{margin:8px 0 16px 20px}
+      .note{font-size:0.9rem;color:#444}
+      pre.code-sample{background:#0f1724;color:#e6eefc;padding:10px;border-radius:6px;overflow:auto;font-family:monospace;font-size:0.9rem}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cloud Computing — Pestañas</h1>
+
+      <div class="tabs" role="tablist" aria-label="Pestañas principales">
+        <button class="tab-button active" role="tab" aria-selected="true" data-tab="tab1">Pestaña 1: Concepto e imagen</button>
+        <button class="tab-button" role="tab" aria-selected="false" data-tab="tab2">Pestaña 2: Concepto e imagen</button>
+      </div>
+
+      <section id="tab1" class="tab active" role="tabpanel">
+        <h2>¿Qué es Cloud Computing?</h2>
+        <p class="note">Cloud Computing (computación en la nube) es la entrega de recursos informáticos (servidores, almacenamiento, bases de datos, redes, software) a través de Internet («la nube») de forma escalable y bajo demanda. Permite acceder a servicios sin necesidad de gestionar la infraestructura física.</p>
+
+        <h3>¿Qué es SaaS, PaaS e IaaS?</h3>
+        <ul>
+          <li><strong>SaaS (Software as a Service):</strong> aplicaciones listas para usar accesibles por Internet (ejemplo: Gmail, Office 365).</li>
+          <li><strong>PaaS (Platform as a Service):</strong> plataformas para desarrollar y desplegar aplicaciones sin gestionar la infraestructura subyacente (ejemplo: Heroku, Google App Engine).</li>
+          <li><strong>IaaS (Infrastructure as a Service):</strong> recursos de infraestructura virtualizados (máquinas, redes, almacenamiento) que el usuario configura (ejeplo: AWS EC2, Azure Virtual Machines).</l'i>
+        </ul>
+
+        <h3>¿Qué es Virtualización?</h3>
+        <p class="note">La virtualización es la creación de una versión virtual (no física) de recursos informáticos como servidores, sistemas operativos, dispositivos de almacenamiento o redes que permite ejecutar múltiples entornos aislados sobre el mismo hardware físico.</p>
+
+        <h3>¿Qué es Docker?</h3>
+        <p class="note">Docker es una plataforma para crear, distribuir y ejecutar aplicaciones en contenedores. Los contenedores empaquetan la aplicación con sus dependencias, garantizando que se ejecute de forma consistente en cualquier entorno.</p>
+
+      </section>
+
+      <section id="tab2" class="tab" role="tabpanel" aria-hidden="true">
+        <h2>Pestaña 2</h2>
+        <p class="note">Descripcion:</p>
+
+        <div class="side-by-side">
+          <div class="card">
+            <h3>AnyDesk</h3>
+            <p class="note">AnyDesk es una aplicación de acceso remoto y soporte remoto que permite controlar PCs y ofrecer asistencia técnica a distancia mediante una identificación única y conexión segura. Es ligera y optimizada para baja latencia.</p>
+          </div>
+
+          <div class="card">
+            <h3>TeamViewer</h3>
+            <p class="note">TeamViewer es otra solución popular de acceso y soporte remoto que ofrece conexión remota, transferencia de archivos y reuniones en línea. Funcionan con IDs y contraseñas para sesiones remotas y cifrado de extremo a extremo.</p>
+          </div>
+        </div>
+    </section>
+    </div>
+
+    <script>
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab');
+          // update buttons
+          document.querySelectorAll('.tab-button').forEach(b => {
+            b.classList.toggle('active', b === btn);
+            b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+          });
+          // update panels
+          document.querySelectorAll('.tab').forEach(panel => {
+            const show = panel.id === target;
+            panel.classList.toggle('active', show);
+            panel.setAttribute('aria-hidden', show ? 'false' : 'true');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
